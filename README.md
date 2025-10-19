@@ -20,7 +20,12 @@ java -version
 mvn -v
 Get-Service MongoDB
 
-Run the app
+How To Run:
+
+# Start MongoDB if not running
+Get-Service MongoDB | Where-Object {$_.Status -ne 'Running'} | Start-Service
+
+# Build & run
 mvn clean package -DskipTests
 mvn --% -Dspring-boot.run.mainClass=com.ashwanth.kaiburr.KaiburrApplication spring-boot:run
 
