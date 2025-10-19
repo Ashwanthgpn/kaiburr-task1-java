@@ -92,37 +92,41 @@ Screenshots (embedded)
 
 Every screenshot includes my identity/time.
 
-java -version
+Every screenshot includes my identity/time.
 
+- `java -version`  
+  ![](docs/screens/01-java-version.png)
 
-mvn -v
+- `mvn -v`  
+  ![](docs/screens/02-mvn-v.png)
 
+- `Get-Service MongoDB`  
+  ![](docs/screens/03-mongo-service.png)
 
-Get-Service MongoDB
+- App start (Tomcat on 8080)  
+  ![](docs/screens/04-app-start.png)
 
+- `GET /api/health`  
+  ![](docs/screens/05-health.png)
 
-App start (Tomcat on 8080)
+- `PUT /api/tasks`  
+  ![](docs/screens/06-put-task.png)
 
+- `GET /api/tasks`  
+  ![](docs/screens/07-get-tasks.png)
 
-GET /api/health
+- `GET /api/tasks?id=...`  
+  ![](docs/screens/08-get-task-by-id.png)
 
+- `GET /api/tasks?name=...`  
+  ![](docs/screens/09-search-by-name.png)
 
-PUT /api/tasks
+- `PUT /api/tasks/{id}/executions` (response)  
+  ![](docs/screens/10-put-execution.png)
 
+- Final `GET /api/tasks?id=...` showing `taskExecutions`  
+  ![](docs/screens/11-task-with-executions.png)
 
-GET /api/tasks
-
-
-GET /api/tasks?id=...
-
-
-GET /api/tasks?name=...
-
-
-PUT /api/tasks/{id}/executions (response)
-
-
-Final GET /api/tasks?id=... showing taskExecutions
 
 
 Data model
