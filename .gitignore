@@ -1,0 +1,33 @@
+﻿# Java / Maven
+target/
+!.mvn/wrapper/maven-wrapper.jar
+.mvn/wrapper/maven-wrapper.properties
+
+# IDEs / Editors
+*.iml
+.idea/
+.vscode/
+.classpath
+.project
+.settings/
+
+# OS junk
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Node (in case)
+node_modules/
+
+# Gradle (not used but safe)
+.gradle/
+build/
+
+# Videos / large media (avoid committing big files)
+*.mp4
+*.mov
+
+# Environment / secrets (don't commit real secrets)
+*.env
