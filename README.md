@@ -95,7 +95,6 @@ Invoke-RestMethod -Method Delete -Uri "http://localhost:8080/api/tasks/<TASK_ID>
 
 Screenshots (embedded)
 
-Every screenshot includes my identity/time.
 
 Every screenshot includes my identity/time.
 
