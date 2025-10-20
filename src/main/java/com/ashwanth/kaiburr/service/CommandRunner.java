@@ -4,10 +4,10 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.nio.charset.Charset;
 import java.time.Duration;
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 public class CommandRunner {
-
     public static class Result {
         public final int exitCode; public final String stdout; public final String stderr;
         public Result(int exitCode, String stdout, String stderr) {
@@ -15,11 +15,25 @@ public class CommandRunner {
         }
     }
 
+    private static boolean isWindows() {
+        String os = System.getProperty("os.name", "").toLowerCase();
+        return os.contains("win");
+    }
+
+    private static List<String> buildCommand(String command) {
+        if (isWindows()) {
+            // Windows container or host
+            return List.of("cmd.exe", "/c", command);
+        } else {
+            // Linux container (Alpine/Temurin)
+            return List.of("sh", "-lc", command);
+        }
+    }
+
     public Result run(String command, Duration timeout) throws Exception {
-        ProcessBuilder pb = new ProcessBuilder("cmd.exe", "/c", command);
+        ProcessBuilder pb = new ProcessBuilder(buildCommand(command));
         pb.redirectErrorStream(false);
         Process p = pb.start();
-
         boolean finished = p.waitFor(timeout.toMillis(), TimeUnit.MILLISECONDS);
         if (!finished) {
             p.destroyForcibly();
